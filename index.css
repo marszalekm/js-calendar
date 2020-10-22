@@ -1,0 +1,27 @@
+body{
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+    height: 100%;
+    padding: 75px;
+}
+
+.day {
+    border: 1px solid blue;
+    box-sizing: content-box;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.weekend {
+    color: lightblue;
+}
+
+.selected {
+    background-color: lightblue;
+}
