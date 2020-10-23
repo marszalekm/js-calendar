@@ -7,7 +7,8 @@ body{
     grid-template-rows: auto;
     grid-auto-rows: 100px;
     grid-gap: 5px;
-    padding: 25px;
+    padding-left: 150px;
+    padding-right: 150px;
     align-content: center;
     justify-content: center;
 }
@@ -37,6 +38,15 @@ body{
     color: rgb(93, 126, 189);
 }
 
-.selected {
+.selection {
     background-color:  rgb(37, 37, 226);
+}
+
+#details {
+    text-align: center;
+}
+
+#selected {
+    padding: 25px;
+    text-align: center;
 }

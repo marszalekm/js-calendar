@@ -1,6 +1,7 @@
 const calendar = document.querySelector("#calendar")
 
 var days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+var daysfordetails = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December']
 var now = new Date()
 var today = now.getDay()
@@ -44,9 +45,15 @@ for (let day = 1; day <= daysinmonth; day++) {
     }   
 }
 
+//Add JQuery function that will untoggle current selection, when selecting another.
+
 document.querySelectorAll('#calendar .day, #calendar .weekend').forEach
 (day => {
     day.addEventListener('click', event => {
-        event.currentTarget.classList.toggle('selected')
+        event.currentTarget.classList.toggle('selection')
+        let currentdate = event.currentTarget.innerHTML
+        document.getElementById('selected').innerHTML = 
+        daysfordetails[new Date(year, month, currentdate).getDay()] + ', ' + months[month] + ' ' + currentdate
+        document.getElementById('details').innerHTML = 'Your events:'
     })
 })
