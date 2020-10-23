@@ -8,18 +8,24 @@ var currentday = now.getDate()
 var month = now.getMonth()
 var year = now.getFullYear()
 var daysinmonth = new Date(year, month+1, 0).getDate()
+var firstdayofmonth = new Date(year, month, 1).getDay()
 
-// Create a function that based on the current day of the week
-// and date will indicate the day of the week of the 1st day of the month
 
-const isWeekend = day => {
-    return false
+if (firstdayofmonth == 1) {
+    //pass
+} else if (firstdayofmonth == 0) { 
+    for (i=0; i < 6; i++)
+        calendar.insertAdjacentHTML("beforeend", 
+        `<div class="emptyday"></div>`)
+} else {
+    for (i=0; i < firstdayofmonth - 1; i++)
+        calendar.insertAdjacentHTML("beforeend", 
+        `<div class="emptyday"></div>`)
 }
 
-for (let day = 1; day <= 31; day++) {
 
-    const weekend = isWeekend(day)
-    
+for (let day = 1; day <= daysinmonth; day++) {
+
     calendar.insertAdjacentHTML("beforeend", 
-    `<div class="day ${weekend ? "weekend" : ""}">${day}</div>`)
+    `<div class="day">${day}</div>`)
 }
