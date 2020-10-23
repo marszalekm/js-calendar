@@ -1,6 +1,6 @@
 const calendar = document.querySelector("#calendar")
 
-var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+var days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December']
 var now = new Date()
 var today = now.getDay()
@@ -10,6 +10,14 @@ var year = now.getFullYear()
 var daysinmonth = new Date(year, month+1, 0).getDate()
 var firstdayofmonth = new Date(year, month, 1).getDay()
 
+
+calendar.insertAdjacentHTML("beforebegin", 
+`<h1 class="monthandyear">${months[month]} ${year}</h1>`)
+
+days.forEach(day =>
+    calendar.insertAdjacentHTML("beforeend", 
+    `<div class="dayname">${day}</div>`)
+)
 
 if (firstdayofmonth == 1) {
     //pass
@@ -26,6 +34,19 @@ if (firstdayofmonth == 1) {
 
 for (let day = 1; day <= daysinmonth; day++) {
 
-    calendar.insertAdjacentHTML("beforeend", 
-    `<div class="day">${day}</div>`)
+    if (new Date(year, month, day).getDay() == 0 ||
+        new Date(year, month, day).getDay() == 6)  {
+        calendar.insertAdjacentHTML("beforeend", 
+        `<div class="weekend">${day}</div>`)
+    } else {
+        calendar.insertAdjacentHTML("beforeend", 
+        `<div class="day">${day}</div>`)
+    }   
 }
+
+document.querySelectorAll('#calendar .day, #calendar .weekend').forEach
+(day => {
+    day.addEventListener('click', event => {
+        event.currentTarget.classList.toggle('selected')
+    })
+})

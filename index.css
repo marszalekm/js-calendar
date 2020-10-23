@@ -4,28 +4,39 @@ body{
 #calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: 100px;
     grid-gap: 5px;
-    height: 100%;
-    padding: 75px;
+    padding: 25px;
+    align-content: center;
+    justify-content: center;
 }
 
-.day {
-    border: 1px solid blue;
+.day, .weekend {
+    border: 1px solid rgb(37, 37, 226);
     box-sizing: content-box;
     text-align: center;
     cursor: pointer;
     padding: 15px;
 }
 
-.emptyday {
-    
+.dayname {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+
+.monthandyear {
+    text-align: center;
+    font-size: large;
+    padding-top: 15px;
 }
 
 .weekend {
-    color: lightblue;
+    color: rgb(93, 126, 189);
 }
 
 .selected {
-    background-color: lightblue;
+    background-color:  rgb(37, 37, 226);
 }
