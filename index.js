@@ -45,15 +45,13 @@ for (let day = 1; day <= daysinmonth; day++) {
     }   
 }
 
-//Add JQuery function that will untoggle current selection, when selecting another.
-
-document.querySelectorAll('#calendar .day, #calendar .weekend').forEach
-(day => {
-    day.addEventListener('click', event => {
-        event.currentTarget.classList.toggle('selection')
+$(document).ready(function(){
+    $('.day, .weekend').click(function(){
+        $('#calendar .day, #calendar .weekend').css("background-color", 'transparent')
+        $(this).css("background-color","rgb(37, 37, 226)")
         let currentdate = event.currentTarget.innerHTML
         document.getElementById('selected').innerHTML = 
         daysfordetails[new Date(year, month, currentdate).getDay()] + ', ' + months[month] + ' ' + currentdate
         document.getElementById('details').innerHTML = 'Your events:'
-    })
-})
+    });
+});
