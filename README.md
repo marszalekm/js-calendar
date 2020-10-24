@@ -1,4 +1,4 @@
-# Calendar made with JavaScript, CSS and HTML.
+# Calendar made with JavaScript (JQuery), CSS and HTML.
 
 **Work in progress**
 
