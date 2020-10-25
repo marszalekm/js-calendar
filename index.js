@@ -38,20 +38,30 @@ for (let day = 1; day <= daysinmonth; day++) {
     if (new Date(year, month, day).getDay() == 0 ||
         new Date(year, month, day).getDay() == 6)  {
         calendar.insertAdjacentHTML("beforeend", 
-        `<div class="weekend">${day}</div>`)
+        `<div class="weekend">${day}<p></p></div>`)
     } else {
         calendar.insertAdjacentHTML("beforeend", 
-        `<div class="day">${day}</div>`)
+        `<div class="day">${day} <p></p></div>`)
     }   
 }
 
 $(document).ready(function(){
-    $('.day, .weekend').click(function(){
+    $('.day, .weekend').click(function(event){
         $('#calendar .day, #calendar .weekend').css("background-color", 'transparent')
-        $(this).css("background-color","rgb(37, 37, 226)")
-        let currentdate = event.currentTarget.innerHTML
+        let dayselected = $(this)
+        console.log(dayselected)
+        dayselected.css("background-color","rgb(37, 37, 226)")
+        $('.btn, .entryfield').css("visibility", "visible")
+        let currentdate = event.currentTarget.innerHTML.slice(0, 2)
         document.getElementById('selected').innerHTML = 
         daysfordetails[new Date(year, month, currentdate).getDay()] + ', ' + months[month] + ' ' + currentdate
         document.getElementById('details').innerHTML = 'Your events:'
-    });
-});
+        
+        $('#button').click(function(){
+            dayselected[0].querySelector('p').innerHTML = 'Event'
+            let event = document.getElementById("eventname").value
+            document.getElementById('details').insertAdjacentHTML("beforeend", 
+            `<p>${event}</p>`)
+        }) 
+    })
+})
