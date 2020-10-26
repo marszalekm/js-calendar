@@ -28,10 +28,32 @@ body{
     font-size: 16px;
 }
 
-.monthandyear {
+#monthandyear {
     text-align: center;
     font-size: large;
-    padding-top: 15px;
+    width: max-content;
+    margin: auto;
+}
+
+#navbar {
+    display: grid;
+    grid-template-columns: 4fr 1fr 4fr;
+    grid-template-rows: 1fr;
+    column-gap: 10px;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#leftbtn p {
+    font-size: large;
+    float: right;
+    cursor: pointer;
+}
+
+#rightbtn p{
+    font-size: large;
+    float: left;
+    cursor: pointer;
 }
 
 .weekend {
