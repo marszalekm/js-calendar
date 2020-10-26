@@ -51,7 +51,7 @@ function selectDay() {
         $('.day, .weekend').click(function(event){
             $('#calendar .day, #calendar .weekend').css("background-color", 'transparent')
             let dayselected = $(this)
-            dayselected.css("background-color","rgb(37, 37, 226)")
+            dayselected.css("background-color","#4d79ff")
             $('.btn, .entryfield, #details, #selected').css("visibility", "visible")
             let currentdate = event.currentTarget.innerHTML.slice(0, 2)
             document.getElementById('selected').innerHTML = 
